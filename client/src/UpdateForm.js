@@ -13,6 +13,18 @@ const initialState = {
 export const UpdateForm = (props) => {
     const [movieInput, setMovieInput] = useState(initialState)
     
+    // useEffect(() => {
+    //     const movieToEdit = props.movies.find(
+    //       e => `${e.id}` === props.match.params.id
+    //     );
+    //     console.log(props.movies, movieToEdit);
+    //     if (movieToEdit) {
+    //         setMovieInput(movieToEdit);
+    //     }
+    //   }, [props.movies, props.match.params.id]);
+
+
+
     const handleSubmit = e => {
         e.preventDefault();
         axios
@@ -27,7 +39,7 @@ export const UpdateForm = (props) => {
     const handleChange = e => {
         setMovieInput({
             ...movieInput,
-            [e.target.name]: value
+            [e.target.name]: e.target.value
         })
     }
 
@@ -39,7 +51,7 @@ export const UpdateForm = (props) => {
                 name = 'title'
                 type = 'text'
                 value = {movieInput.title}
-                onchange = {handleChange}
+                onChange = {handleChange}
                 placeholder = 'Add movie title'
             />
 
@@ -48,7 +60,7 @@ export const UpdateForm = (props) => {
                 name = 'director'
                 type = 'text'
                 value = {movieInput.director}
-                onchange = {handleChange}
+                onChange = {handleChange}
                 placeholder = 'Add movie director'
             />
 
@@ -57,7 +69,7 @@ export const UpdateForm = (props) => {
                 name = 'metascore'
                 type = 'text'
                 value = {movieInput.metascore}
-                onchange = {handleChange}
+                onChange = {handleChange}
                 placeholder = 'Add metascore'
             />
 
@@ -66,7 +78,7 @@ export const UpdateForm = (props) => {
                 name = 'stars'
                 type = 'text'
                 value = {movieInput.stars}
-                onchange = {handleChange}
+                onChange = {handleChange}
                 placeholder = 'Add stars'
             />
             <button type = 'submit'>Add</button>
