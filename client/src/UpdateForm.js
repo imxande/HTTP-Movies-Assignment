@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 
 
 const initialState = {
-    id: Date.now(),
+    // id: Date.now(),
     title: '',
     director: '',
     metascore: '',
@@ -13,15 +13,16 @@ const initialState = {
 export const UpdateForm = (props) => {
     const [movieInput, setMovieInput] = useState(initialState)
     
-    // useEffect(() => {
-    //     const movieToEdit = props.movies.find(
-    //       e => `${e.id}` === props.match.params.id
-    //     );
-    //     console.log(props.movies, movieToEdit);
-    //     if (movieToEdit) {
-    //         setMovieInput(movieToEdit);
-    //     }
-    //   }, [props.movies, props.match.params.id]);
+    useEffect(() => {
+        
+        const movieToEdit = props.movies.find(
+          e => `${e.id}` === props.match.params.id
+        );
+        // console.log(props.movies, movieToEdit);
+        if (movieToEdit) {
+            setMovieInput(movieToEdit);
+        }
+      }, [props.movies, props.match.params.id]);
 
 
 
@@ -30,7 +31,7 @@ export const UpdateForm = (props) => {
         axios
             .put(`http://localhost:5000/api/movies/${movieInput.id}`, movieInput)
             .then(response =>{
-                props.updateMovie(response.data)
+               
                 props.history.push(`/movie-list/${movieInput.id}`)
             })
             .catch(error => console.log(error))
@@ -81,7 +82,7 @@ export const UpdateForm = (props) => {
                 onChange = {handleChange}
                 placeholder = 'Add stars'
             />
-            <button type = 'submit'>Add</button>
+            <button type = 'submit'>UPDATE</button>
         </form>
     )
 }
