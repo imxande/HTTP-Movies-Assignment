@@ -44,6 +44,12 @@ export const UpdateForm = (props) => {
         })
     }
 
+    const handleStars = e => {
+        setMovieInput({
+            ...movieInput,
+            stars: e.target.value.split(',')
+        })
+    }
 
     return (
         <form onSubmit = {handleSubmit}>
@@ -79,7 +85,7 @@ export const UpdateForm = (props) => {
                 name = 'stars'
                 type = 'text'
                 value = {movieInput.stars}
-                onChange = {handleChange}
+                onChange = {handleStars}
                 placeholder = 'Add stars'
             />
             <button type = 'submit'>UPDATE</button>
