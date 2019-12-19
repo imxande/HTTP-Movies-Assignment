@@ -59,7 +59,7 @@ export const UpdateForm = (props) => {
                 type = 'text'
                 value = {movieInput.title}
                 onChange = {handleChange}
-                placeholder = 'Add movie title'
+                
             />
 
             <label htmlFor = 'director'> Director: </label>
@@ -68,7 +68,7 @@ export const UpdateForm = (props) => {
                 type = 'text'
                 value = {movieInput.director}
                 onChange = {handleChange}
-                placeholder = 'Add movie director'
+                
             />
 
             <label htmlFor = 'metascore'> Metascore: </label>
@@ -77,7 +77,7 @@ export const UpdateForm = (props) => {
                 type = 'text'
                 value = {movieInput.metascore}
                 onChange = {handleChange}
-                placeholder = 'Add metascore'
+               
             />
 
             <label htmlFor = 'stars'> Stars: </label>
@@ -86,7 +86,7 @@ export const UpdateForm = (props) => {
                 type = 'text'
                 value = {movieInput.stars}
                 onChange = {handleStars}
-                placeholder = 'Add stars'
+               
             />
             <button type = 'submit'>UPDATE</button>
         </form>
